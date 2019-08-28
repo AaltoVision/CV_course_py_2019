@@ -20,7 +20,7 @@ We have added the course to Aalto JupyterHub which you can access from the here:
 
 Your JupyterLab environment could look something like this:
 
-![Image][images/jupyterLab-env.png?raw=true]
+![JupyterLab environment image](images/jupyterLab-env.png)
 
 ### 2. Through personal docker container
 
