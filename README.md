@@ -1,7 +1,7 @@
 # CV_course_py_2019
 CS-E4850 Computer Vision Course 2019 - Python assignments
 
-This repository contains the Jupyter notebooks and related files used in the Python programming exercises for the [CS-E4850 - Computer Vision course 2019](https://mycourses.aalto.fi/course/view.php?id=24368) at the Aalto University, including (1) the actual weekly homework assignments and (2) all test images. Please, see the notebooks for more details on, e.g., submission guideline. If you need to clone this repository read the instructions in option 2 (personal Docker container) on how to clone and update a repository containing [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+This repository contains the Jupyter notebooks and related files used in the Python programming exercises for the [CS-E4850 - Computer Vision course 2019](https://mycourses.aalto.fi/course/view.php?id=24368) at Aalto University, including (1) the actual weekly homework assignments and (2) all test images. Please, see the notebooks for more details on, e.g., submission guideline. If you need to clone this repository read the instructions in option 2 (personal Docker container) on how to clone and update a repository containing [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 For more information, or bug reporting, feel free to contact Antti Parviainen at firstname.lastname at aalto.fi.
 
@@ -18,7 +18,7 @@ We have added the course to Aalto JupyterHub which you can access here: [Aalto J
   * to ...jupyter.cs.aalto.fi/user/your_username/lab/tree/notebooks?.
   * Activate the variable inspector extension by opening a Notebook, right-click with your mouse and choose "Open Variable Inspector." You can then drag the inspector to one side of the screen. NB: The extension is still experimental and might not work perfectly. If you experience serious problems, for example, performance issues, kindly report them through MyCourses Forums or at the exercise sessions.
 5. More information on, for example, how to access your JupyterHub data and JupyterHub, in general, can be found [here](https://scicomp.aalto.fi/aalto/jupyterhub.html).
-6. For submission export your assignment to pdf and notebook format (.ipynb) and submit them both, the pdf and the notebook, through MyCourses.
+6. When you're ready to submit your solution, export the assignment to pdf and Jupyter Notebook format (.ipynb) and submit them both, the pdf and the notebook, through MyCourses.
 7. If you accidentally select a wrong environment or if you use JupyterHub for another course and the wrong environment persists, click "Control Panel" in the upper right corner, select "Stop My Server" and start from the beginning.
 
 Your JupyterLab environment should look approximately like this:
@@ -34,12 +34,12 @@ This option will result in the same environment as option 1 above, but you'll no
   * `git clone --recurse-submodules https://github.com/AaltoVision/CV_course_py_2019.git`
 3. Once new assignments are released, you can pull them using:
   * `git submodule update --remote`
-4. NB: Remember to use the above commands and not, for example, git pull. This repo uses git [submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) that collect the separate repositories, notebooks, and data, into this single repository, so you don't have to update and clone two repositories. They are separated because it's more convenient for JupyterHub use.
+4. NB: Remember to use the above commands and not, for example, `git pull`. This repo uses [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) that collect the separated repositories, notebooks and data, into this single repository, so you don't have to update and clone two repositories. They are separated because it's more convenient for JupyterHub use.
 5. Download the Docker image.
   * `docker pull apparvi/cv2019`
-6. In the folder where you cloned the repositary create a container by running this bit of a monster command which is explained [here](https://hub.docker.com/r/apparvi/cv2019):
+6. In the folder where you cloned the repository create a container by running this bit of a monster command which is explained [here](https://hub.docker.com/r/apparvi/cv2019):
   * `docker run -it --name opencv --user $(id -u):$(id -g) --group-add users -v "$(pwd)":/home/jovyan/work -p 8888:8888 cv2019 start.sh jupyter lab --NotebookApp.custom_display_url='http://127.0.0.1:8888' --notebook-dir=/home/jovyan/work`
 7. To start JupyterHub copy & paste the created URL to your browser.
 8. In the future start the container with a more simple command by calling its name:
   * `docker start -i cv2019`
-9. Export your assignment to pdf and notebook format (.ipynb) and submit them both, the pdf and the notebook, through MyCourses.
+9. When you're ready to submit your solution, export the assignment to pdf and Jupyter Notebook format (.ipynb) and submit them both, the pdf and the notebook, through MyCourses.
