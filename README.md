@@ -7,7 +7,7 @@ For more information, or bug reporting, feel free to contact Antti Parviainen at
 
 ## Instructions on how to work on the assignments
 
-### 1. Recommended: Aalto JupyterHub
+### 1. Aalto JupyterHub (Recommended option)
 
 We have added the course to Aalto JupyterHub which you can access here: [Aalto JupyterHub](https://jupyter.cs.aalto.fi). JupyterHub detailed instructions:
 1. Select the Computer Vision course and click Spawn.
@@ -18,29 +18,30 @@ We have added the course to Aalto JupyterHub which you can access here: [Aalto J
   * to ...jupyter.cs.aalto.fi/user/your_username/lab/tree/notebooks?.
   * Activate the variable inspector extension by opening a Notebook, right-click with your mouse and choose "Open Variable Inspector." You can then drag the inspector to one side of the screen. NB: The extension is still experimental and might not work perfectly. If you experience serious problems, for example, performance issues, kindly report them through MyCourses Forums or at the exercise sessions.
 5. More information on, for example, how to access your JupyterHub data and JupyterHub, in general, can be found [here](https://scicomp.aalto.fi/aalto/jupyterhub.html).
-6. When you're ready to submit your solution, export the assignment to pdf and Jupyter Notebook format (.ipynb) and submit them both, the pdf and the notebook, through MyCourses.
+6. When you're ready to submit your solution, export the assignment to pdf and Jupyter Notebook format (.ipynb) and submit them both, the pdf and the Notebook, through MyCourses.
 7. If you accidentally select a wrong environment or if you use JupyterHub for another course and the wrong environment persists, click "Control Panel" in the upper right corner, select "Stop My Server" and start from the beginning.
 
 Your JupyterLab environment should look approximately like this:
 
 ![JupyterLab environment image](images/jupyterLab-env.png)
 
-### 2. Through personal docker container
+### 2. Docker
 
 This option will result in the same environment as option 1 above, but you'll now also be able to work on the assignments offline. If you have a basic understanding of Git and Docker, this is an option.
 
 1. Download [Docker](https://www.docker.com/).
 2. Clone this repo and update the submodules using the following commands:
   * `git clone --recurse-submodules https://github.com/AaltoVision/CV_course_py_2019.git`
+  * `cd AaltoVision/CV_course_py_2019`
   * `git submodule update --remote`
 3. Once new assignments are released, you can pull them using:
   * `git submodule update --remote`
-4. NB: Remember to use the above commands and not, for example, `git pull`. This repo uses [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) that collect the separated repositories, notebooks and data, into this single repository, so you don't have to update and clone two repositories. They are separated because it's more convenient for JupyterHub use.
-5. Download the Docker image. The filesize is about 4.88GB. 
+4. NB: Remember to use the above commands and not, for example, `git pull`. This repo uses [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) that collect the separated repositories, notebooks and data, into this single repository, so you don't have to update and clone two repositories. They are separated because it's more convenient for managing JupyterHub.
+5. Download the Docker image. Note: the filesize is about 5GB. 
   * `docker pull apparvi/cv2019`
-6. In the folder where you cloned the repository create a container by running this bit of a monster command which is explained [here](https://hub.docker.com/r/apparvi/cv2019):
+6. In the folder where you cloned the repository create a container by running this bit of a monster command. The command is explained [here](https://hub.docker.com/r/apparvi/cv2019):
   * `docker run -it --name cv2019 --user $(id -u):$(id -g) --group-add users -v "$(pwd)":/home/jovyan/work -p 8888:8888 apparvi/cv2019 start.sh jupyter lab --NotebookApp.custom_display_url='http://127.0.0.1:8888' --notebook-dir=/home/jovyan/work`
-7. To start JupyterHub copy & paste the created URL to your browser.
+7. To start JupyterLab copy & paste the created URL to your browser.
 8. In the future start the container with a more simple command by calling its name:
   * `docker start -i cv2019`
-9. When you're ready to submit your solution, export the assignment to pdf and Jupyter Notebook format (.ipynb) and submit them both, the pdf and the notebook, through MyCourses.
+9. When you're ready to submit your solution, export the assignment to pdf and Jupyter Notebook format (.ipynb) and submit them both, the pdf and the Notebook, through MyCourses.
