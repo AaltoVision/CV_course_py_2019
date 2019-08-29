@@ -30,15 +30,16 @@ Your JupyterLab environment should look approximately like this:
 This option will result in the same environment as option 1 above, but you'll now also be able to work on the assignments offline. If you have a basic understanding of Git and Docker, this is an option.
 
 1. Download [Docker](https://www.docker.com/).
-2. Clone this repo using the following command:
+2. Clone this repo and update the submodules using the following commands:
   * `git clone --recurse-submodules https://github.com/AaltoVision/CV_course_py_2019.git`
+  * `git submodule update --remote`
 3. Once new assignments are released, you can pull them using:
   * `git submodule update --remote`
 4. NB: Remember to use the above commands and not, for example, `git pull`. This repo uses [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) that collect the separated repositories, notebooks and data, into this single repository, so you don't have to update and clone two repositories. They are separated because it's more convenient for JupyterHub use.
-5. Download the Docker image.
+5. Download the Docker image. The filesize is about 4.88GB. 
   * `docker pull apparvi/cv2019`
 6. In the folder where you cloned the repository create a container by running this bit of a monster command which is explained [here](https://hub.docker.com/r/apparvi/cv2019):
-  * `docker run -it --name opencv --user $(id -u):$(id -g) --group-add users -v "$(pwd)":/home/jovyan/work -p 8888:8888 cv2019 start.sh jupyter lab --NotebookApp.custom_display_url='http://127.0.0.1:8888' --notebook-dir=/home/jovyan/work`
+  * `docker run -it --name cv2019 --user $(id -u):$(id -g) --group-add users -v "$(pwd)":/home/jovyan/work -p 8888:8888 apparvi/cv2019 start.sh jupyter lab --NotebookApp.custom_display_url='http://127.0.0.1:8888' --notebook-dir=/home/jovyan/work`
 7. To start JupyterHub copy & paste the created URL to your browser.
 8. In the future start the container with a more simple command by calling its name:
   * `docker start -i cv2019`
