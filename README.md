@@ -32,7 +32,7 @@ This option will result in the same environment as option 1 above, but you'll no
 1. Download [Docker](https://www.docker.com/).
 2. Clone this repo and update the submodules using the following commands:
   * `git clone --recurse-submodules https://github.com/AaltoVision/CV_course_py_2019.git`
-  * `cd AaltoVision/CV_course_py_2019`
+  * `cd CV_course_py_2019`
   * `git submodule update --remote`
 3. Once new assignments are released, you can pull them using:
   * `git submodule update --remote`
